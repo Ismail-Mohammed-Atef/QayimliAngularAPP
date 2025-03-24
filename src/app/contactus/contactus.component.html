@@ -1,0 +1,64 @@
+<div class="card md:px-6 lg:px-8">
+    <div class="flex flex-wrap mb-4">
+        <div class="col-12">
+            <p class="text-900 font-bold">{{ "MoCommon.ContactUS" | translate }}</p>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="grid grid-nogutter px-2 flex-column md:flex-row" style="column-gap: 2rem; row-gap: 2rem">
+                <div
+                    class="col flex flex-column justify-content-center text-center align-items-center border-1 surface-border py-5 px-4 border-round ng-star-inserted">
+                    <i class="pi pi-fw text-2xl text-primary pi-phone maincolor1-color"></i><span
+                        class="text-900 font-bold mt-4 mb-1">{{ "MoCommon.PhoneNumber" | translate }} </span><span
+                        class="text-500">1 (833) 597-7538</span>
+                </div>
+                <div
+                    class="col flex flex-column justify-content-center text-center align-items-center border-1 surface-border py-5 px-4 border-round ng-star-inserted">
+                    <i class="pi pi-fw text-2xl text-primary pi-map-marker maincolor1-color"></i><span
+                        class="text-900 font-bold mt-4 mb-1">{{ "MoCommon.OurOffice" | translate }} </span><span
+                        class="text-500">{{ "MoCommon.CairoEgypt" | translate }}
+                    </span>
+                </div>
+                <div
+                    class="col flex flex-column justify-content-center text-center align-items-center border-1 surface-border py-5 px-4 border-round ng-star-inserted">
+                    <i class="pi pi-fw text-2xl text-primary pi-print maincolor1-color"></i><span
+                        class="text-900 font-bold mt-4 mb-1">{{ "MoCommon.fax" | translate }} </span><span
+                        class="text-500">3 (833) 297-1548</span>
+                </div>
+                <!---->
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <p class="text-900 font-bold">{{ "MoCommon.SendEmail" | translate }}</p>
+            <div class="grid flex-column md:flex-row formgrid grid-nogutter mt-6"
+                style="row-gap: 2rem; column-gap: 2rem">
+                <div class="field col">
+                    <label for="name" class="block text-indigo-300 font-bold maincolor1-color">{{ "MoCommon.Name" |
+                        translate }} </label><span class="p-input-icon-left w-full" style="height: 3.5rem"><i
+                            class="pi pi-user" style="left: 1.5rem"></i><input type="text" pinputtext=""
+                            [placeholder]="'MoCommon.Name' | translate"
+                            class="p-inputtext p-component p-element w-full px-7 text-900 font-semibold ng-untouched ng-pristine ng-valid"
+                            style="height: 3.5rem" /></span>
+                </div>
+                <div class="field col">
+                    <label for="email" class="block text-indigo-300 font-bold maincolor1-color">{{ "MoCommon.Email" |
+                        translate }} </label><span class="p-input-icon-left w-full" style="height: 3.5rem"><i
+                            class="pi pi-envelope" style="left: 1.5rem"></i><input type="text" pinputtext=""
+                            placeholder="Email"
+                            class="p-inputtext p-component p-element w-full px-7 text-900 font-semibold ng-untouched ng-pristine ng-valid"
+                            style="height: 3.5rem" /></span>
+                </div>
+                <div class="field col-12 flex flex-column">
+                    <label for="message" class="block text-indigo-300 font-bold maincolor1-color">{{ "MoCommon.Message"
+                        | translate }} </label><textarea id="message" rows="5" pinputtextarea=""
+                        class="p-inputtextarea p-inputtext p-component p-element w-full surface-border p-4 text-900 font-semibold border-round ng-untouched ng-pristine ng-valid p-inputtextarea-resizable"
+                        style="height: 126px; overflow: hidden"></textarea>
+                    <button type="submit" pButton [label]="'MoCommon.SendMessage' | translate"
+                        class="p-element p-button-primary ml-auto mt-3 border-round p-button p-component btn maincolor1-background-color"
+                        (click)="sendMessage()">
+                        <span class="p-button-label">{{ "MoCommon.SendMessage" | translate }}
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

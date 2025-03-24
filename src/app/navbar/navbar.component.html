@@ -1,0 +1,46 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <img src='/assets/images/Logo.png' alt="logo" width="50" height="50" class="w-50 mx-2 cursor-pointer"
+            routerLink="/home">
+    </ng-template>
+
+    <ng-template pTemplate="item" let-item let-root="root">
+        <a pRipple [routerLink]="item.routerLink" routerLinkActive="true"
+            class="flex align-items-center p-menuitem-link">
+            <span [class]="item.icon"></span>
+            <span class="mx-2">{{ item.label }}</span>
+        </a>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div class="flex align-items-center gap-2">
+            <a *ngIf="!(this._AuthService.isLogged | async)" pRipple routerLink="/login"
+                class="flex align-items-center p-menuitem-link">
+                <span class="pi pi-sign-in"></span>
+                <span class="mx-2">{{'MoCommon.Login'
+                    | translate}}</span>
+            </a>
+
+            <a *ngIf="!(this._AuthService.isLogged | async)" pRipple routerLink="/register"
+                class="flex align-items-center p-menuitem-link">
+                <span class="pi pi-sign-out"></span>
+                <span class="mx-2">{{'MoCommon.Register'
+                    | translate}}</span>
+            </a>
+
+            <a *ngIf="(this._AuthService.isLogged | async)" (click)="logOut()" pRipple
+                class="flex align-items-center p-menuitem-link">
+                <span class="pi pi-sign-in"></span>
+                <span class="mx-2">{{'MoCommon.Logout'
+                    | translate}}</span>
+            </a>
+            <a pRipple class="flex align-items-center p-menuitem-link" (click)="this._AppComponent.changeLanguage('')">
+                <span class="mx-2 text-xl text-uppercase"
+                    [style]="{'text-transform': 'uppercase'}">{{this._AppComponent.MainLanguage}}</span> <i
+                    *ngIf="this._AppComponent.IsLoadingChangeLanguage" class="fas fa-spinner fa-spin"></i>
+            </a>
+            <p-avatar *ngIf="(this._AuthService.isLogged | async)" [image]="(this._AuthService.userDetails$ | async)?.pictureUrl 
+            ? (this._AuthService.userDetails$ | async)?.pictureUrl 
+            : '/assets/images/palestineflag.png'" shape="circle"></p-avatar>
+        </div>
+    </ng-template>
+</p-menubar>

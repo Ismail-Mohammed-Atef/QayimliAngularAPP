@@ -1,0 +1,109 @@
+<div class="p-fluid" *ngIf="reviewDetails" [ngClass]="{'card': config?.data == null}">
+    <div class="grid flex justify-content-around gap-1 mb-4">
+        <div class="col-12 sm:col-6 md:col-4 lg:col-2 p-2 text-center">
+            <h5>{{"MoCommon.ReviewCategory" | translate }}</h5>
+            <p>{{ reviewDetails.reviewCategory.name }}</p>
+        </div>
+        <div class="col-12 sm:col-6 md:col-4 lg:col-2 p-2 text-center">
+            <h5>{{"MoCommon.ReviewTitle" | translate }}</h5>
+            <p>{{ reviewDetails.title }}</p>
+        </div>
+        <div class="col-12 sm:col-6 md:col-4 lg:col-2 p-2 text-center">
+            <h5>{{ "MoCommon.Owner" | translate }}</h5>
+            <p>{{ reviewDetails.reviewOwner.displayName }}</p>
+        </div>
+    </div>
+    <div class="grid flex justify-content-around gap-1 mb-4">
+        <div *ngFor="let review of reviewDetails.reviewDetails; let i = index"
+            class="card col-12 sm:col-6 md:col-4 lg:col-3 xl:col-3 p-2 mocardtools">
+            <div class="card-body">
+                <div class="Topmostafa">
+                    <div class=" flex justify-content-between align-items-center mb-2">
+                        <label class="px=2" class="username">{{ i+1 }}</label>
+                        <p-rating class="px=2" [ngModel]="review.averageRate" stars="5" [cancel]="false" readonly>
+                        </p-rating>
+                    </div>
+                    <!-- Existing code for review content -->
+                    <h5 *ngIf="reviewDetails.reviewType === ReviewType.Text">{{ "MoCommon.ReviewContent" | translate }}:
+                    </h5>
+                    <p *ngIf="reviewDetails.reviewType === ReviewType.Text">{{ review.reviewContent }}</p>
+
+                    <!-- Image Review -->
+                    <h5
+                        *ngIf="reviewDetails.reviewType === ReviewType.ImageLink || reviewDetails.reviewType === ReviewType.ImageFile">
+                        {{"MoCommon.Image" | translate }}:</h5>
+                    <img *ngIf="reviewDetails.reviewType === ReviewType.ImageLink || reviewDetails.reviewType === ReviewType.ImageFile"
+                        [src]="review.reviewContent" alt="Review Image" class="img-fluid">
+
+                    <!-- Description -->
+                    <h5>{{ "MoCommon.Description" | translate }}:</h5>
+                    <p>{{ review.description }}</p>
+                </div>
+
+                <div class="bottommostafa">
+                    <p-rating [(ngModel)]="addingVote[review.id]" stars="5" [cancel]="false">
+                        <ng-template pTemplate="onicon">
+                            <img src="/assets/images/staricon1.svg" width="25px" height="25px" />
+                        </ng-template>
+                        <ng-template pTemplate="officon">
+                            <img src="/assets/images/staricon.svg" width="25px" height="25px" />
+                        </ng-template>
+                    </p-rating>
+
+                    <!-- Comment Box -->
+                    <h5>{{ "MoCommon.Comment" | translate }}:</h5>
+                    <textarea [(ngModel)]="addingComment[review.id]" rows="3"
+                        placeholder='{{ "MoCommon.WriteYourCommentHere" | translate }}'
+                        class="p-inputtext p-component p-filled w-full"></textarea>
+
+                    <div class="mt-2 text-center">
+                        <button pButton type="button"
+                            [label]="IsLoadingSavingVote[review.id] ? null : ('MoCommon.AddVote' | translate)"
+                            class="p-button-primary maincolor1-background-color"
+                            icon="{{IsLoadingSavingVote[review.id] ? 'pi pi-spin pi-spinner' : null}}"
+                            [disabled]="IsLoadingSavingVote[review.id]" (click)="addNewVote(review.id)">
+                        </button>
+                    </div>
+
+                    <!-- Scrollable Comment Section -->
+                    <h3
+                        class="m-1 text-center fw-bolder border-bottom-3 border-round-bottom maincolor1-color moborder p-0 pb-1">
+                        {{ "MoCommon.Votes" | translate }}</h3>
+                    <p *ngIf="review?.votes.length == 0" class="text-center">
+                        {{ 'MoCommon.NoVotesFound' | translate }}
+                    </p>
+                    <p-scrollPanel styleClass="scroll-panel" [style]="{'max-height':'200px', 'margin-top':'5px'}">
+                        <div *ngFor="let vote of review.votes; let i = index" class="card col-12 mocardtools p-2 mb-2">
+                            <div class="card-body">
+                                <!-- Top Section: User and Rating -->
+                                <div class=" flex justify-content-between align-items-center mb-2">
+                                    <label class="px=2" class="username">{{ vote?.voteOwner?.displayName??'Guest'
+                                        }}</label>
+                                    <p-rating class="px=2" [ngModel]="vote.rate" stars="5" [cancel]="false" readonly>
+                                        <ng-template pTemplate="onicon">
+                                            <img src="/assets/images/staricon1.svg" width="15px" height="15px" />
+                                        </ng-template>
+                                    </p-rating>
+                                </div>
+
+                                <!-- Bottom Section: Comment Box -->
+                                <div class="comment-box">
+                                    <p class="form-control" readonly>{{ vote.comment }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </p-scrollPanel>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-inline-flex align-items-end">
+        <button type="button" [pTooltip]="'MoCommon.CopyToClipboard' | translate" tooltipPosition="top" (click)="copylink()" ngxClipboard  [cbContent]="reviewLink"
+            class="fw-bolder btn maincolor1-background-color moborder p-2"> {{
+            'MoCommon.CopyLink' | translate }}<i class="pi pi-send"></i></button>
+        <div *ngIf="config?.data != null" class="text-center mt-4">
+            <button (click)="close()" pButton type="button" label='{{ "MoCommon.Close" | translate }}'
+                class="p-button-rounded p-button-secondary maincolor1-background-color"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="settings-box mainborderdiv" style="display: none;">
+  <div class="settings-container">
+    <div class="option-box">
+      <h4 class="fw-bold">Colors</h4>
+      <ul class="colors-list my-1">
+        <li class="mx-1" class="active" data-color="#8A74F9" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#E91E63" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#009688" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#03A9f4" (click)="this._AppComponent.saveMainColor($event)"></li>
+        <li class="mx-1" data-color="#4CAF50" (click)="this._AppComponent.saveMainColor($event)"></li>
+      </ul>
+    </div>
+    <!--      <div class="option-box">
+          <h4>Rondom Backgrounds</h4>
+          <div class="rondom-backgrounds">
+            <span class="yes active" data-background="yes">Yes</span>
+            <span class="no" data-background="no">No</span>
+          </div>
+        </div>
+        <div class="option-box">
+          <h4>Show Bullets</h4>
+          <div class="bull-option">
+            <span class="yes active" data-display="show">Yes</span>
+            <span class="no" data-display="hide">No</span>
+          </div>
+        </div> -->
+    <div class="option-box p-1 cursor-pointer">
+      <span class="maincolor2-color" data-color="#8A74F9"
+        (click)="this._AppComponent.saveMainColor($event)">{{"MoCommon.ResetColor" |
+        translate}}</span>
+    </div>
+  </div>
+</div>
+<div class="dock-container w-25">
+  <p-dock [model]="dockItems">
+    <ng-template let-item pTemplate="item">
+      <ng-container *ngIf="item.icon.startsWith('pi'); else imgIcon">
+        <i [class]="item.icon" style="font-size: 2.3rem; color:white; text-shadow: 0 0 10px var(--maincolor1);"></i>
+        <span class="dock-text">{{ item.label }}</span>
+      </ng-container>
+      <ng-template #imgIcon>
+        <img [src]="item.icon" alt="{{ item.label }}" style="width: 50%">
+        <span class="dock-text">{{ item.label }}</span>
+      </ng-template>
+    </ng-template>
+  </p-dock>
+</div>

@@ -1,0 +1,152 @@
+<div class="grid p-fluid justify-content-center">
+    <div class="col-12 md:col-6">
+        <div class="card px-3 sm:px-5">
+            <h2 class="text-center">{{ "MoCommon.SubmitReview" | translate }}</h2>
+
+            <form [formGroup]="addNewReviewForm" enctype="multipart/form-data">
+                <div class="form-control px-3 py-5 m-auto w-75 mainborderdiv1">
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label p-input-icon-left">
+                                <i class="pi pi-pencil"></i>
+                                <input id="title" type="text" pInputText formControlName="title" class="form-control" />
+                                <label for="title">{{
+                                    "MoCommon.ReviewTitle" | translate
+                                    }}</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <label for="reviewCategoryId">{{
+                                "MoCommon.ReviewCategory" | translate
+                                }}</label>
+                            <p-dropdown [options]="reviewCategories?.data" formControlName="reviewCategoryId"
+                                [placeholder]="'MoCommon.SelectCategory' | translate" [showClear]="true"
+                                optionLabel="name" optionValue="id">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <div class="flex justify-content-center align-items-center mb-4">
+                                <label for="reviewType">{{
+                                    "MoCommon.ReviewType" | translate
+                                    }}</label>
+                            </div>
+                            <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+                            <div class="grid flex justify-content-around gap-1 mb-4">
+                                <div *ngFor="let type of reviewTypes" class="field-radiobutton"
+                                    (mousedown)="confirmReviewChange(type)">
+                                    <label>
+                                        <p-radioButton name="reviewType" formControlName="reviewType"
+                                            [value]="type"></p-radioButton>
+                                        <span class="ml-2">{{ type }}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label">
+                                <!-- Image File Upload Section -->
+                                <div *ngIf="
+                    addNewReviewForm.get('reviewType')?.value ===
+                    ReviewType.ImageFile
+                  ">
+                                    <p-fileUpload #uploadLogo accept="image/*" maxFileSize="3000000"
+                                        [customUpload]="true" (uploadHandler)="onFileSelect($event)"
+                                        [accept]="jpegAndPngFileType" [auto]="true" cancelIcon="true">
+                                    </p-fileUpload>
+                                </div>
+
+                                <!-- Image Link Input -->
+                                <span *ngIf="
+                    addNewReviewForm.get('reviewType')?.value ===
+                    ReviewType.ImageLink
+                  " class="p-float-label p-input-icon-left">
+                                    <i class="pi pi-pencil"></i>
+                                    <input id="imageLink" type="text" pInputText formControlName="reviewContent"
+                                        class="form-control" />
+                                    <label for="imageLink">{{
+                                        "MoCommon.ImageUrl" | translate
+                                        }}</label>
+                                </span>
+
+                                <!-- Text Review Content -->
+                                <textarea *ngIf="
+                    addNewReviewForm.get('reviewType')?.value ===
+                    ReviewType.Text
+                  " id="reviewContent" formControlName="reviewContent" pInputTextarea rows="5"
+                                    class="form-control"></textarea>
+                                <label for="reviewContent" *ngIf="
+                    addNewReviewForm.get('reviewType')?.value ===
+                    ReviewType.Text
+                  ">{{ "MoCommon.ReviewContent" | translate }}</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label">
+                                <textarea id="description" formControlName="description" pInputTextarea rows="3"
+                                    class="form-control"></textarea>
+                                <label for="description">{{ "MoCommon.Description" | translate }}</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <button (click)="AddNewReview()" type="button" pButton
+                            [label]="'MoCommon.AddNewReview' | translate"
+                            class="p-button-rounded p-button-primary maincolor1-background-color"></button>
+                    </div>
+
+                    <div class="grid flex justify-content-around gap-1 mb-4">
+                        <div *ngFor="let review of reviewDetails; let i = index"
+                            class="card col-12 md:col-6 lg:col-2 p-2 mocardtools">
+                            <div class="btn mocardtoolstopright cursor-pointer">
+                                <i (click)="RemoveReview(i)" class="fa fa-trash text-red-500"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 *ngIf="review.ReviewContent">
+                                    {{ "MoCommon.ReviewContent" | translate }}:
+                                </h5>
+                                <p *ngIf="
+                    review.ReviewContent &&
+                    addNewReviewForm.get('reviewType')?.value ===
+                      ReviewType.Text
+                  ">
+                                    {{ review.ReviewContent }}
+                                </p>
+
+                                <h5 *ngIf="
+                    addNewReviewForm.get('reviewType')?.value ===
+                    ReviewType.ImageLink
+                  ">
+                                    Image:
+                                </h5>
+                                <img *ngIf="
+                    addNewReviewForm.get('reviewType')?.value ===
+                      ReviewType.ImageLink ||
+                    addNewReviewForm.get('reviewType')?.value ===
+                      ReviewType.ImageFile
+                  " [src]="review.ReviewContent" alt="Review Image" class="img-fluid" />
+
+                                <h5>{{ "MoCommon.Description" | translate }}:</h5>
+                                <p>{{ review.Description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <button [disabled]="IsLoading || reviewDetails.length === 0" (click)="SubmitAllReviews()"
+                            type="button" pButton [label]="'MoCommon.SubmitAllReviews' | translate"
+                            class="p-button-rounded p-button-success"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

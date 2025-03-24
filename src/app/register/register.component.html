@@ -1,0 +1,106 @@
+<div class="grid p-fluid justify-content-center">
+    <div class="col-12 md:col-6">
+        <div class="card">
+            <h2 class="text-center">{{"MoCommon.Register" | translate }}</h2>
+            <h3 class="text-center text-muted">{{"MoCommon.CreateNewAccount" | translate }}</h3>
+
+            <!-- Google Sign-In Button -->
+            <div class="flex justify-content-center mb-3">
+                <asl-google-signin-button type="standard" text="signup_with" size="large" shape="pill"
+                    [locale]="'Locale' | translate">
+                    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="filled_blue"
+                        data-text="signup_with" data-size="large" data-logo_alignment="left">
+                    </div>
+                </asl-google-signin-button>
+            </div>
+
+            <!-- OR Separator -->
+            <div class="text-center my-3">
+                <span>OR</span>
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="Register(registerForm)">
+                <div class="form-control px-3 py-5 m-auto w-75 mainborderdiv1">
+
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label p-input-icon-left">
+                                <i class="pi pi-envelope"></i>
+                                <input id="email" type="email" pInputText formControlName="email" class="form-control">
+                                <label for="email">{{"MoCommon.EmailAddress" | translate }}</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label p-input-icon-left">
+                                <i class="pi pi-lock"></i>
+                                <p-password id="password" [toggleMask]="true"
+                                    promptLabel="{{'MoCommon.EnterYourPassword' | translate }}"
+                                    weakLabel="{{'MoCommon.Weak' | translate }}"
+                                    mediumLabel="{{'MoCommon.Medium' | translate }}"
+                                    strongLabel="{{'MoCommon.Strong' | translate }}"
+                                    styleClass="p-input-icon-left p-password p-component p-inputwrapper form-control"
+                                    formControlName="password">
+                                </p-password>
+                                <label for="password">{{"MoCommon.Password" | translate }}</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label p-input-icon-left">
+                                <i class="pi pi-lock"></i>
+                                <p-password id="confirmPassword" [toggleMask]="true"
+                                    promptLabel="{{'MoCommon.EnterYourPassword' | translate }}"
+                                    weakLabel="{{'MoCommon.Weak' | translate }}"
+                                    mediumLabel="{{'MoCommon.Medium' | translate }}"
+                                    strongLabel="{{'MoCommon.Strong' | translate }}"
+                                    styleClass="p-input-icon-left p-password p-component p-inputwrapper form-control"
+                                    formControlName="confirmPassword">
+                                </p-password>
+                                <label for="confirmPassword"> {{"MoCommon.ConfirmPassword" | translate }}</label>
+                            </span>
+                            <div *ngIf="!passwordsMatch()" class="invalid-tooltip d-block">
+                                <p>{{"MoCommon.PasswordsDoNotMatch" | translate }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label p-input-icon-left">
+                                <i class="pi pi-envelope"></i>
+                                <input id="displayname" type="text" pInputText formControlName="displayname"
+                                    class="form-control">
+                                <label for="displayname">{{"MoCommon.DisplayName" | translate }}</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-4 position-relative">
+                        <div class="field p-2">
+                            <span class="p-float-label p-input-icon-left">
+                                <i class="pi pi-envelope"></i>
+                                <input id="phonenumber" type="text" pInputText formControlName="phonenumber"
+                                    class="form-control">
+                                <label for="phonenumber">{{"MoCommon.PhoneNumber" | translate }}</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button [disabled]="IsLoading || registerForm.invalid" type="submit" pButton label="Register"
+                            pTooltip="Register" tooltipPosition="top"
+                            class="p-button-rounded p-button-primary maincolor1-background-color"></button>
+                        <p-toast></p-toast>
+                    </div>
+                    <!-- Links -->
+                    <div class="text-center mt-4">
+                        <a routerLink="/login" class="text-primary maincolor1-color">{{"MoCommon.AlreadyHaveAccount" |
+                            translate }}</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

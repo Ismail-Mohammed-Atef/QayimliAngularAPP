@@ -1,0 +1,810 @@
+@font-face {
+    font-family: 'NeoSansArabic';
+    src: url(../public/assets/fonts/NeoSansArabic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterVariable.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: InterVariable;
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterVariable-Italic.woff2") format("woff2");
+}
+
+/* static fonts */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-Thin.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 100;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-ThinItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 200;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-ExtraLightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-SemiBoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-ExtraBoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-Black.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url("../public/assets/fonts/Inter-BlackItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-Thin.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 100;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-ThinItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 200;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-ExtraLightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-SemiBoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-ExtraBoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-Black.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url("../public/assets/fonts/InterDisplay-BlackItalic.woff2") format("woff2");
+}
+
+:root {
+    --mainbackground: #F3F5F7;
+    --maincolor1: #8A74F9;
+    --maincolor2: #ffffff;
+    --maincolor3: #251c52;
+    --font-family: NeoSansArabic, Inter, Impact, 'Arial Narrow Bold', sans-serif;
+    --mofontsize: 10px;
+    --moborderradius: 12px;
+    --motransitionduration: .2s;
+}
+
+* {
+    font-family: var(--font-family);
+}
+
+body {
+    position: relative;
+    background-color: var(--mainbackgroyund);
+    font-family: var(--font-family);
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.mainborderdiv {
+    border-radius: 20px;
+    background-color: var(--maincolor1);
+    /* set red background color */
+    border: 3px solid var(--mainbackground);
+    /* set white border */
+    box-shadow: 0 0 0 2px var(--maincolor1);
+    /* set green border inside the white border */
+}
+
+.mainborderdiv1 {
+    border-radius: 20px;
+    background-color: var(--mainbackground);
+    /* set red background color */
+    border: 3px solid var(--maincolor1);
+    /* set white border */
+    box-shadow: 0 0 0 2px var(--mainbackground);
+    /* set green border inside the white border */
+}
+
+.mainborderdivwhite {
+    border-radius: 20px;
+    /* set red background color */
+    border: 3px solid white;
+    /* set white border */
+    box-shadow: 0 0 0 2px transparent;
+    /* set green border inside the white border */
+}
+
+
+.mocircelborder {
+    overflow: hidden;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: var(--maincolor3);
+    color: var(--maincolor1);
+    /* set red background color */
+    border: 2px solid var(--maincolor1);
+    /* set white border */
+    box-shadow: 0 0 0 1px var(--maincolor3);
+}
+
+.moborder {
+    overflow: hidden;
+    padding: 2px;
+    background-color: var(--mainbackground);
+    color: var(--maincolor1);
+    /* set red background color */
+    border: 2px solid var(--maincolor1);
+    /* set white border */
+    box-shadow: 0 0 0 1px var(--mainbackground);
+}
+
+.maincolor1-background-color {
+    background-color: var(--maincolor1) !important;
+    color: var(--maincolor2) !important;
+}
+
+.maincolor1-background-color:hover {
+    background-color: var(--maincolor2) !important;
+    color: var(--maincolor1) !important;
+}
+
+.btn.maincolor1-background-color {
+    border: 1px solid var(--maincolor2) !important;
+    border-radius: 10px;
+}
+
+.btn.maincolor1-background-color:hover {
+    border: 1px solid var(--maincolor1) !important;
+    border-radius: 10px;
+}
+
+.maincolor1-color {
+    color: var(--maincolor1) !important;
+}
+
+.maincolor2-color {
+    color: var(--maincolor2) !important;
+}
+
+.maincolor3-color {
+    color: var(--maincolor2) !important;
+}
+
+.maincolor2-background-color {
+    background-color: var(--maincolor2) !important;
+    color: var(--maincolor1) !important;
+}
+
+.maincolor2-background-color:hover {
+    background-color: var(--maincolor1) !important;
+    color: var(--maincolor2) !important;
+}
+
+.btn.maincolor2-background-color {
+    border: 1px solid var(--maincolor1) !important;
+    border-radius: 10px;
+}
+
+.btn.maincolor2-background-color:hover {
+    border: 1px solid var(--maincolor2) !important;
+    border-radius: 10px;
+}
+
+.qrcode canvas {
+    border-radius: 10px;
+}
+
+.mocard {
+    height: auto;
+    margin: auto;
+}
+
+@media (min-width: 576px) {
+    .w-sm-10 {
+        width: 10% !important;
+    }
+
+    .w-sm-25 {
+        width: 25% !important;
+    }
+
+    .w-sm-50 {
+        width: 50% !important;
+    }
+
+    .w-sm-75 {
+        width: 75% !important;
+    }
+
+    .w-sm-100 {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .w-lg-10 {
+        width: 10% !important;
+    }
+
+    .w-lg-25 {
+        width: 25% !important;
+    }
+
+    .w-lg-50 {
+        width: 50% !important;
+    }
+
+    .w-lg-75 {
+        width: 75% !important;
+    }
+
+    .w-lg-100 {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .w-xl-10 {
+        width: 10% !important;
+    }
+
+    .w-xl-25 {
+        width: 25% !important;
+    }
+
+    .w-xl-50 {
+        width: 50% !important;
+    }
+
+    .w-xl-75 {
+        width: 75% !important;
+    }
+
+    .w-xl-100 {
+        width: 100% !important;
+    }
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+    background-color: var(--maincolor1);
+    border-color: var(--maincolor1);
+}
+
+::ng-deep .ui-inputswitch-checked .p-inputswitch-slider {
+    background-color: var(--maincolor1);
+    border-color: var(--maincolor1);
+}
+
+.apexcharts-tooltip.apexcharts-theme-lightp {
+    border: 1px solid var(--maincolor2);
+    border-radius: 3px;
+    box-shadow: 0 2px 5px var(--maincolor2);
+    color: var(--maincolor2) !important;
+    background-color: var(--maincolor3) !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 8px 10px;
+    white-space: nowrap;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+    color: var(--maincolor2) !important;
+    background-color: var(--maincolor3) !important;
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark {
+    color: var(--maincolor2) !important;
+    background-color: var(--maincolor3) !important;
+}
+
+.apexcharts-tooltip.apexcharts-active {
+    opacity: 0.9 !important;
+}
+
+.apexcharts-tooltip-title {
+    color: var(--maincolor2) !important;
+    background-color: var(--maincolor3) !important;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.apexcharts-tooltip-value {
+    margin-bottom: 5px;
+}
+
+.apexcharts-tooltip-zindex-fix {
+    z-index: 9999 !important;
+}
+
+.p-dock .p-dock-list {
+    background: var(--maincolor1);
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.p-dock .p-dock-item {
+    padding: 0.5rem 0.5rem;
+    border-radius: 6px;
+}
+
+.p-dock {
+    position: fixed !important;
+    padding: 5px;
+    margin: auto;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.dock-text {
+    font-size: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.p-dock .p-dock-link {
+    width: 5rem;
+    height: 4rem;
+}
+.dock-container {
+    position: relative;
+}
+
+.p-dock-container {
+    position: absolute;
+    bottom: 0;
+}
+
+.color-box {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    /* Position just above the p-dock */
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    /* Initially hide the color box */
+    z-index: 9999999999999;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.color-box.show {
+    opacity: 1;
+    /* Show the color box when 'show' class is applied */
+}
+
+.custom-cursor-pointer {
+    cursor: pointer !important;
+}
+
+.p-toast-top-right {
+    top: 100px;
+    right: 20px;
+}
+
+.p-toast .p-toast-message.p-toast-message-success {
+    background-color: var(--maincolor1);
+    color: var(--maincolor2);
+    border: solid var(--maincolor3);
+    border-width: 0 0 0 6px;
+}
+
+.p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon,
+.p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
+    color: var(--maincolor2);
+}
+
+.progress-spinner {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* Transparent Overlay */
+.progress-spinner:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.53);
+}
+
+.p-progress-spinner {
+    position: fixed !important;
+    margin: auto !important;
+    width: 200px !important;
+    height: 200px !important;
+    display: inline-block;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.p-input-icon-left>i {
+    z-index: 9999999999999;
+}
+
+.layout-main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+.layout-main {
+    flex: 1 1 auto;
+}
+
+.layout-footer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--surface-border);
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    background: var(--surface-card);
+    border: 1px solid var(--surface-border);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    border-radius: 12px;
+}
+
+.mocardtools {
+    position: relative;
+    transition: all ease 1s;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mocardtools img {
+    transition: all ease 1s;
+}
+
+.mocardtools img:hover {
+    transform: scale(1.1);
+}
+
+.mocardtools:hover {
+    border-color: var(--maincolor1);
+}
+
+.mocardtools .btn {
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.mocardtools:hover .btn,
+.mocardtools:focus .btn,
+.mocardtools:active .btn {
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+
+.mocardtoolstopright {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 1;
+}
+
+.mocardtoolstopleft {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    z-index: 1;
+}
+
+.card-body p {
+    white-space: normal;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    border-radius: 20%;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: var(--maincolor1);
+    color: var(--maincolor2);
+}
+
+/* .p-paginator-pages {
+    direction: rtl;
+} */
+
+.p-paginator {
+    font-weight: bold;
+}
+
+.p-paginator .p-dropdown .p-dropdown-label {
+    font-weight: bold;
+}
+
+.p-scrollpanel .p-scrollpanel-bar {
+    background: var(--maincolor1) !important;
+    border: 0 none;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}

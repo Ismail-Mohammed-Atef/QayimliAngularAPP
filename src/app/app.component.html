@@ -1,0 +1,17 @@
+<p-progressSpinner *ngIf="isLoading" styleClass="progress-spinner" strokeWidth="8" fill="var(--surface-ground)"
+    animationDuration=".5s">
+</p-progressSpinner>
+<p-toast [dir]="'dir'|translate"></p-toast>
+<app-docker></app-docker>
+<div class="layout-wrapper" [ngClass]="containerClass">
+    <div class="layout-sidebar">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="layout-main-container px-1 sm:px-2">
+        <div class="layout-main">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </div>
+    <div class="layout-mask"></div>
+</div>

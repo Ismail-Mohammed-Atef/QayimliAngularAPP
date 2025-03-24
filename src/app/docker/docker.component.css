@@ -1,0 +1,89 @@
+.settings-box {
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  transform: translate(-50%, -45%);
+  background-color: #fff;
+  transition: width 0.5s;
+  border: 1px solid var(--maincolor1);
+  border-radius: 10px;
+  z-index: 5099999999999990;
+}
+
+.settings-box .option-box {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background-color: var(--maincolor1);
+  border-radius: 10px;
+}
+
+.settings-box .option-box h4 {
+  margin: 0;
+  color: var(--maincolor2);
+  font-size: 14px;
+}
+
+.settings-box .option-box .colors-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 10 0 0;
+}
+
+.settings-box .option-box .colors-list li {
+  background-color: #333;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  border: 3px solid #eee;
+}
+
+.settings-box .option-box .colors-list li.active {
+  border-color: #fff;
+}
+
+.settings-box .option-box .colors-list li:first-child {
+  background-color: #8A74F9;
+}
+
+.settings-box .option-box .colors-list li:nth-child(2) {
+  background-color: #E91E63;
+}
+
+.settings-box .option-box .colors-list li:nth-child(3) {
+  background-color: #009688;
+}
+
+.settings-box .option-box .colors-list li:nth-child(4) {
+  background-color: #03A9f4;
+}
+
+.settings-box .option-box .colors-list li:nth-child(5) {
+  background-color: #4CAF50;
+}
+
+.settings-box .option-box .yes,
+.settings-box .option-box .no {
+  width: 50px;
+  background-color: var(--maincolor1);
+  color: #fff;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.settings-box .option-box span.active {
+  opacity: 1;
+}
+
+.settings-box .option-box .bull-option .active {
+  opacity: 1;
+}
